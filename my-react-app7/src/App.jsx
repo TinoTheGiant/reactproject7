@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react';
+
 
 function AllTheButtons() {
 
@@ -15,13 +15,11 @@ function Button2()
 }
 
 
-const [isButton3Disabled, setIsButton3Disabled] = useState(false);
-const [button3Text, setButton3Text] = useState("Click Me To Disable");
-
-function Button3()
-{
-  setIsButton3Disabled(true);
-  setButton3Text("Disabled!");
+function Button3(event) {
+ 
+  event.target.disabled = true;
+ 
+  event.target.textContent = 'Disabled!';
 }
 
 
@@ -38,7 +36,7 @@ function Button4()
              <h1> More Options, More Problems </h1>
              <button onClick={Button1}>Alert Me</button>
              <button onClick={Button2}>Console Log Me</button>
-             <button onClick={Button3} disabled={isButton3Disabled}>{button3Text}</button>
+             <button onClick={Button3}>Click Me To Disable</button>
              <button onDoubleClick={Button4}>Double Click To Alert</button>
     </div>
     
